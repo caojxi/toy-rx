@@ -42,6 +42,10 @@ class Observable {
     this.subscribe = subscribe
   }
 
+  /**
+   * Observable create is the only contract-abiding way of creating Observables.  
+   * @param {Function} subscribe 
+   */
   static create(subscribe) {
     return new Observable(function internalSubscribe(observer) {
       const subscriber = new Subscriber(observer)
@@ -85,7 +89,7 @@ class Subject extends Observable {
   }
 }
 
-const Rx = { 
+export const Rx = { 
   Subscription,
   Observable,
   Subject

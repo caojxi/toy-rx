@@ -48,6 +48,10 @@ var Observable = function Observable(subscribe) {
   this.subscribe = subscribe;
 };
 
+/**
+ * Observable create is the only contract-abiding way of creating Observables.  
+ * @param {Function} subscribe 
+ */
 Observable.create = function create (subscribe) {
   return new Observable(function internalSubscribe(observer) {
     var subscriber = new Subscriber(observer);
